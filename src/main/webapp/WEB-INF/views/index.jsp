@@ -43,40 +43,40 @@
 <form action="main" method="post">
     <table id="calculator">
         <tr>
-            <td id='history' colspan="4">history</td>
+            <td id='history' colspan="4">${previousResult}</td>
         </tr>
         <tr>
-           <td id='inputtd' colspan="4"><input name="value" readonly id="input"></input></td>
+           <td id='inputtd' colspan="4"><b style="color:red">${error } </b><input name="expression" value="${expression }" readonly id="input"></input></td>
         </tr>
         <tr>
-            <td><button class="operator" type="button">(</button></td>
-            <td><button class="operator" type="button">)</button></td>
+            <td><button class="operator" onclick="insert()" type="button">(</button></td>
+            <td><button class="operator" onclick="insert()" type="button">)</button></td>
             <td><button class="operator" type="button">Back</button></td>
-            <td><button class="operator" type="button">AC</button></td>
+            <td><button class="operator" onclick="insert()" type="button">AC</button></td>
         </tr>
         <tr>
-            <td><button class="number" onclick="insertNum()" type="button">7</button></td>
-            <td><button class="number" onclick="insertNum()" type="button">8</button></td>
-            <td><button class="number" onclick="insertNum()" type="button">9</button></td>
-            <td><button class="operator" type="button">¡À</button></td>
+            <td><button class="number" onclick="insert()" type="button">7</button></td>
+            <td><button class="number" onclick="insert()" type="button">8</button></td>
+            <td><button class="number" onclick="insert()" type="button">9</button></td>
+            <td><button class="operator" onclick="insert()" type="button">¡À</button></td>
         </tr>
         <tr>
-            <td><button class="number" onclick="insertNum()" type="button">4</button></td>
-            <td><button class="number" onclick="insertNum()" type="button">5</button></td>
-            <td><button class="number" onclick="insertNum()" type="button">6</button></td>
-            <td><button class="operator" type="button">¡¿</button></td>
+            <td><button class="number" onclick="insert()" type="button">4</button></td>
+            <td><button class="number" onclick="insert()" type="button">5</button></td>
+            <td><button class="number" onclick="insert()" type="button">6</button></td>
+            <td><button class="operator" onclick="insert()" type="button">¡¿</button></td>
         </tr>
         <tr>
-            <td><button class="number" onclick="insertNum()" type="button">1</button></td>
-            <td><button class="number" onclick="insertNum()" type="button">2</button></td>
-            <td><button class="number" onclick="insertNum()" type="button">3</button></td>
-            <td><button class="operator" type="button">-</button></td>
+            <td><button class="number" onclick="insert()" type="button">1</button></td>
+            <td><button class="number" onclick="insert()" type="button">2</button></td>
+            <td><button class="number" onclick="insert()" type="button">3</button></td>
+            <td><button class="operator" onclick="insert()" type="button">-</button></td>
         </tr>
         <tr>
-            <td><button class="number" onclick="insertNum()" type="button">0</button></td>
-            <td><button class="dot" type="button">.</button></td>
+            <td><button class="number" onclick="insert()" type="button">0</button></td>
+            <td><button class="dot" onclick="insert()" type="button">.</button></td>
             <td><button class="submit" type="submit">=</button></td>
-            <td><button class="operator" type="button">+</button></td>
+            <td><button class="operator" onclick="insert()" type="button">+</button></td>
         </tr>
     </table>
 </form>
@@ -86,7 +86,7 @@
 
     var input = "";
 
-    function insertNum(){
+    function insert(){
         var num = event.target.innerText;
         input += num;
         document.getElementById('input').value = input;
